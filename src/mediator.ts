@@ -132,7 +132,7 @@ function getGhostElement(
   ghost.style.position = 'fixed'
   ghost.style.top = '0px'
   ghost.style.left = '0px'
-  ghost.style.transform = null
+  ghost.style.transform = ''
   ghost.style.removeProperty('transform')
 
   if (container.shouldUseTransformForGhost()) {
