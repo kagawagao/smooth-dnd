@@ -1,20 +1,20 @@
-import * as constants from "./constants";
-import container from "./container";
-import * as dropHandlers from "./dropHandlers";
-import { SmoothDnDCreator, ContainerOptions } from "./exportTypes";
-import { ElementX } from "./interfaces";
+import * as constants from './constants'
+import container from './container'
+import * as dropHandlers from './dropHandlers'
+import { SmoothDnDCreator, ContainerOptions } from './exportTypes'
+import { ElementX } from './interfaces'
 
-export * from "./exportTypes";
+export * from './exportTypes'
 
-export { container as smoothDnD, constants, dropHandlers };
+export { container as smoothDnD, constants, dropHandlers }
 
 function delegateProperty(from: any, to: any, propName: string) {
   Object.defineProperty(from, propName, {
     set: (val?: boolean) => {
-      to[propName] = val;
+      to[propName] = val
     },
-    get: () => to[propName]
-  });
+    get: () => to[propName],
+  })
 }
 
 const deprecatedDefaultExport: SmoothDnDCreator = function(
@@ -23,21 +23,21 @@ const deprecatedDefaultExport: SmoothDnDCreator = function(
 ) {
   console.warn(
     'default export is deprecated. please use named export "smoothDnD"'
-  );
-  return container(element, options);
-};
+  )
+  return container(element, options)
+}
 
 deprecatedDefaultExport.cancelDrag = function() {
-  container.cancelDrag();
-};
+  container.cancelDrag()
+}
 
 deprecatedDefaultExport.isDragging = function() {
-  return container.isDragging();
-};
+  return container.isDragging()
+}
 
-delegateProperty(deprecatedDefaultExport, container, "useTransformForGhost");
-delegateProperty(deprecatedDefaultExport, container, "maxScrollSpeed");
-delegateProperty(deprecatedDefaultExport, container, "wrapChild");
-delegateProperty(deprecatedDefaultExport, container, "dropHandler");
+delegateProperty(deprecatedDefaultExport, container, 'useTransformForGhost')
+delegateProperty(deprecatedDefaultExport, container, 'maxScrollSpeed')
+delegateProperty(deprecatedDefaultExport, container, 'wrapChild')
+delegateProperty(deprecatedDefaultExport, container, 'dropHandler')
 
-export default deprecatedDefaultExport;
+export default deprecatedDefaultExport
